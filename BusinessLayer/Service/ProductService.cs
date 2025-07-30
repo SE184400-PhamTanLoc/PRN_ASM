@@ -64,5 +64,20 @@ namespace BusinessLayer.Service
                 Picture = c.Picture
             }).ToList();
         }
+
+        //public ProductDTO GetProductById(int productId)
+        //{
+        //    var product = _productRepository.GetProductById(productId);
+        //    if (product == null) return null;
+
+        //    return new ProductDTO
+        //    {
+        //        ProductId = product.ProductId,
+        //        Name = product.Name,
+        //        Price = product.Price,
+        //        Description = product.Description,
+        //        CategoryName = product.Category.Name
+        //    };
+        //}
     }
 } 

@@ -62,15 +62,23 @@ namespace FUMiniTikiSystem
                 if (result.IsAdmin)
                 {
                     // Admin login - redirect to ProductManagement
-                    ProductManagementWindow productManagementWindow = new ProductManagementWindow();
-                    productManagementWindow.Show();
+                    //ProductManagementWindow productManagementWindow = new ProductManagementWindow();
+                    //productManagementWindow.Show();
                 }
-                else
-                {
-                    // Regular user login - redirect to MainWindow
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                }
+                         else
+                 {
+                     // Regular user login - redirect to MainWindow
+                     if (result.CustomerId.HasValue)
+                     {
+                         MainWindow mainWindow = new MainWindow(result.CustomerId.Value);
+                         mainWindow.Show();
+                     }
+                     else
+                     {
+                         ShowError("Login failed: Customer ID not found");
+                         return;
+                     }
+                 }
 
                 this.Close();
             }

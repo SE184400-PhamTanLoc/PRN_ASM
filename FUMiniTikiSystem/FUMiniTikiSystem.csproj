@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomerWindow\" />
+    <Folder Include="AdminWindow\" />
   </ItemGroup>
 
 </Project>
