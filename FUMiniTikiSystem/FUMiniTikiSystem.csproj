@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="CustomerWindow\" />
   </ItemGroup>
 

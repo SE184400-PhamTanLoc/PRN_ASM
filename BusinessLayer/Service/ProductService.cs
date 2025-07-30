@@ -23,7 +23,8 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
-                CategoryName = p.Category.Name
+                CategoryName = p.Category?.Name ?? "Unknown Category",
+                CategoryImage = p.Category?.Picture
             }).ToList();
         }
 
@@ -36,7 +37,8 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
-                CategoryName = p.Category.Name
+                CategoryName = p.Category?.Name ?? "Unknown Category",
+                CategoryImage = p.Category?.Picture
             }).ToList();
         }
 
@@ -49,7 +51,8 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
-                CategoryName = p.Category.Name
+                CategoryName = p.Category?.Name ?? "Unknown Category",
+                CategoryImage = p.Category?.Picture
             }).ToList();
         }
 

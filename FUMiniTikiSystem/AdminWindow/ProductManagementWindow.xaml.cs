@@ -70,5 +70,14 @@ namespace FUMiniTikiSystem
 
             LoadProducts();
         }
+
+        private void ManageCategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var categoryWindow = new CategoryManagementWindow();
+            categoryWindow.ShowDialog();
+            
+            // Refresh categories after the window is closed
+            LoadCategories();
+        }
     }
 }

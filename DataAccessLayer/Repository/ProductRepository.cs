@@ -23,14 +23,17 @@ namespace DataAccessLayer.Repository
 
         public List<Product> GetProductsByCategory(int categoryId)
         {
-            return _context.Products.Where(p => p.CategoryId == categoryId).ToList();
+            return _context.Products
+                .Include(p => p.Category)
+                .Where(p => p.CategoryId == categoryId)
+                .ToList();
         }
 
         public List<Product> SearchProducts(string keyword, int? categoryId = null)
         {
-            var query = _context.Products.AsQueryable();
+            var query = _context.Products.Include(p => p.Category).AsQueryable();
             if (!string.IsNullOrEmpty(keyword))
-                query = query.Where(p => p.Name.Contains(keyword) || p.Description.Contains(keyword));
+                query = query.Where(p => p.Name.Contains(keyword) || (p.Description != null && p.Description.Contains(keyword)));
             if (categoryId.HasValue)
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             return query.ToList();
