@@ -72,6 +72,9 @@ public partial class FuminiTikiSystemContext : DbContext
             entity.Property(e => e.OrderDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Pending");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)

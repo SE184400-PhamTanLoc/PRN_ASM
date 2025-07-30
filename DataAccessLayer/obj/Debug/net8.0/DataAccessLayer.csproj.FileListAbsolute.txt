@@ -12,3 +12,4 @@ E:\FUMiniTikiSystem\DataAccessLayer\obj\Debug\net8.0\refint\DataAccessLayer.dll
 E:\FUMiniTikiSystem\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.pdb
 E:\FUMiniTikiSystem\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.genruntimeconfig.cache
 E:\FUMiniTikiSystem\DataAccessLayer\obj\Debug\net8.0\ref\DataAccessLayer.dll
+E:\FUMiniTikiSystem\DataAccessLayer\obj\Debug\net8.0\DataAccessLayer.sourcelink.json
