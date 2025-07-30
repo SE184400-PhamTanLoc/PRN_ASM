@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
               "ToolTip": "E:\\FUMiniTikiSystem\\DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
               "RelativeToolTip": "DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T12:31:53.241Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "DataAccessLayer\\Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T12:31:52.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T12:31:52.728Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "FUMiniTikiSystem\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-23T12:29:22.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T12:29:22.398Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "ToolTip": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\MainWindow.xaml",
               "RelativeToolTip": "FUMiniTikiSystem\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-23T12:21:49.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T12:21:49.902Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "FUMiniTikiSystem\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T12:21:46.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T12:21:46.861Z"
             }
           ]
         }

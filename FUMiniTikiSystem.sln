@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUMiniTikiSystem", "FUMiniTikiSystem\FUMiniTikiSystem.csproj", "{08285358-AA88-4658-BE6C-AEE40265F351}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{AD417CC4-1A24-44CA-818F-E6A7FF3E39D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD417CC4-1A24-44CA-818F-E6A7FF3E39D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD417CC4-1A24-44CA-818F-E6A7FF3E39D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD417CC4-1A24-44CA-818F-E6A7FF3E39D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD417CC4-1A24-44CA-818F-E6A7FF3E39D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
