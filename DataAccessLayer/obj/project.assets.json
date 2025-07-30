@@ -5086,23 +5086,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\congl\\.nuget\\packages\\": {},
+    "C:\\Users\\Khoi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FUMiniTikiSystem\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "D:\\Group_ASM_FN\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "E:\\FUMiniTikiSystem\\DataAccessLayer\\DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\congl\\.nuget\\packages\\",
-      "outputPath": "E:\\FUMiniTikiSystem\\DataAccessLayer\\obj\\",
+      "projectPath": "D:\\Group_ASM_FN\\DataAccessLayer\\DataAccessLayer.csproj",
+      "packagesPath": "C:\\Users\\Khoi\\.nuget\\packages\\",
+      "outputPath": "D:\\Group_ASM_FN\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\congl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Khoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5110,8 +5110,7 @@
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\congl\\.nuget\\packages": {},
+        "C:\\Users\\Khoi\\Desktop\\Nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5181,7 +5180,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
