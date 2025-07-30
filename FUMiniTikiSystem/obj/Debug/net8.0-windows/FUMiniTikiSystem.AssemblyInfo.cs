@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FUMiniTikiSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+baa29c23fcbe367bbba631257de0c58c60456f67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e758ed0a2ee74f3a27f41daedf92665a529a458")]
 [assembly: System.Reflection.AssemblyProductAttribute("FUMiniTikiSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FUMiniTikiSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

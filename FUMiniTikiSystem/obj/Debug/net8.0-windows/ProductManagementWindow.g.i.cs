@@ -76,7 +76,7 @@ namespace FUMiniTikiSystem {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FUMiniTikiSystem;component/productmanagementwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FUMiniTikiSystem;V1.0.0.0;component/productmanagementwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ProductManagementWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
