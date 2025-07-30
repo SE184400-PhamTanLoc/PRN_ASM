@@ -1,5 +1,4 @@
 ﻿using BusinessLayer.DTO;
-using BusinessLayer.DTOs;
 using DataAccessLayer.Models;
 using DataAccessLayer.Repository;
 using System;
@@ -36,13 +35,12 @@ namespace BusinessLayer.Service
             var order = new Order
             {
                 OrderAmount = dto.OrderAmount,
-                OrderDate = dto.OrderDate,
+                OrderDate = dto.OrderDate ?? DateTime.Now,
                 CustomerId = dto.CustomerId,
-                Status = dto.Status,
-                Products = dto.ProductIds.Select(id => new Product { ProductId = id }).ToList() // Chỉ gán khóa chính
+                Status = dto.Status ?? "Pending"
             };
 
-            _orderRepo.CreateOrder(order);
+            _orderRepo.CreateOrder(order, dto.ProductIds);
         }
     }
 }

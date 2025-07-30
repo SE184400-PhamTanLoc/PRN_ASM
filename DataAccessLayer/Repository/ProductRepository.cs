@@ -38,5 +38,12 @@ namespace DataAccessLayer.Repository
                 query = query.Where(p => p.CategoryId == categoryId.Value);
             return query.ToList();
         }
+
+        public Product GetProductById(int productId)
+        {
+            return _context.Products
+                .Include(p => p.Category)
+                .FirstOrDefault(p => p.ProductId == productId);
+        }
     }
 }
