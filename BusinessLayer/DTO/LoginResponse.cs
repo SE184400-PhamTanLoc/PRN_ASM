@@ -7,6 +7,6 @@ namespace BusinessLayer.DTO
         public int? CustomerId { get; set; }
         public string? FullName { get; set; }
         public string? Email { get; set; }
-        public string? Token { get; set; } // For future JWT implementation
+        public bool IsAdmin { get; set; } = false;
     }
 } 

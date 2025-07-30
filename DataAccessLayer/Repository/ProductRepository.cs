@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccessLayer
+namespace DataAccessLayer.Repository
 {
     public class ProductRepository
     {

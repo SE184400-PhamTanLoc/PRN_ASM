@@ -2,7 +2,7 @@ using DataAccessLayer.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataAccessLayer
+namespace DataAccessLayer.Repository
 {
     public class CategoryRepository
     {

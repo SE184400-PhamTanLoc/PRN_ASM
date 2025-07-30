@@ -1,6 +1,6 @@
 using BusinessLayer.DTO;
-using DataAccessLayer;
 using DataAccessLayer.Models;
+using DataAccessLayer.Repository;
 using System.Collections.Generic;
 using System.Linq;
 

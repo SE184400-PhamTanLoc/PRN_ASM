@@ -35,24 +35,6 @@ namespace DataAccessLayer.Repository
             return customer;
         }
 
-        public async Task<Customer> UpdateAsync(Customer customer)
-        {
-            _context.Entry(customer).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return customer;
-        }
-
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
-                return false;
-
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
         public async Task<bool> EmailExistsAsync(string email)
         {
             return await _context.Customers

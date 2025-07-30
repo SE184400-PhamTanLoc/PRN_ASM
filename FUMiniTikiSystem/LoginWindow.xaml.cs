@@ -1,7 +1,9 @@
 using BusinessLayer.Service;
+using BusinessLayer.DTO;
 using System;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Extensions.Configuration;
 
 namespace FUMiniTikiSystem
 {
@@ -13,9 +15,18 @@ namespace FUMiniTikiSystem
         public LoginWindow()
         {
             InitializeComponent();
+
+            // Khởi tạo configuration
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            // Khởi tạo repositories và service
             var dbContext = new DataAccessLayer.Models.FuminiTikiSystemContext();
             var customerRepo = new DataAccessLayer.Repository.CustomerRepository(dbContext);
-            _authService = new AuthService(customerRepo);
+            var adminRepo = new DataAccessLayer.Repository.AdminRepository(configuration);
+            _authService = new AuthService(customerRepo, adminRepo);
         }
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -36,18 +47,36 @@ namespace FUMiniTikiSystem
                 return;
             }
 
-            // TODO: Call AuthService for real authentication
-            // For now, just check if email contains "@" and password length > 0
-            if (email.Contains("@") && password.Length > 0)
+            // Call AuthService with DTO
+            var dto = new CustomerLoginDTO
             {
-                // Login successful
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                Email = email,
+                Password = password
+            };
+
+            var result = await _authService.LoginAsync(dto);
+
+            if (result.IsSuccess)
+            {
+                // Check if user is admin
+                if (result.IsAdmin)
+                {
+                    // Admin login - redirect to ProductManagement
+                    ProductManagementWindow productManagementWindow = new ProductManagementWindow();
+                    productManagementWindow.Show();
+                }
+                else
+                {
+                    // Regular user login - redirect to MainWindow
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                }
+
                 this.Close();
             }
             else
             {
-                ShowError("Email or password is incorrect!");
+                ShowError(result.Message);
             }
         }
 

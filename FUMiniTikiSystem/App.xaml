@@ -2,11 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FUMiniTikiSystem"
-<<<<<<< HEAD
              StartupUri="LoginWindow.xaml">
-=======
-             StartupUri="ProductManagementWindow.xaml">
->>>>>>> 3e758ed0a2ee74f3a27f41daedf92665a529a458
+
+
     <Application.Resources>
          
     </Application.Resources>
