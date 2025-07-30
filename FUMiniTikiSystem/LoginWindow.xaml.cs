@@ -98,21 +98,27 @@ namespace FUMiniTikiSystem
             this.Hide();
         }
 
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnTogglePassword_Click(object sender, RoutedEventArgs e)
         {
             _isPasswordVisible = !_isPasswordVisible;
+            
             if (_isPasswordVisible)
             {
                 txtPasswordVisible.Text = txtPassword.Password;
-                txtPasswordVisible.Visibility = Visibility.Visible;
                 txtPassword.Visibility = Visibility.Collapsed;
+                txtPasswordVisible.Visibility = Visibility.Visible;
                 iconEye.Text = "🙈";
             }
             else
             {
                 txtPassword.Password = txtPasswordVisible.Text;
-                txtPasswordVisible.Visibility = Visibility.Collapsed;
                 txtPassword.Visibility = Visibility.Visible;
+                txtPasswordVisible.Visibility = Visibility.Collapsed;
                 iconEye.Text = "👁";
             }
         }

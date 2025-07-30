@@ -1,4 +1,4 @@
-﻿namespace BusinessLayer.DTOs;
+﻿namespace BusinessLayer.DTO;
 
 public class OrderDTO
 {

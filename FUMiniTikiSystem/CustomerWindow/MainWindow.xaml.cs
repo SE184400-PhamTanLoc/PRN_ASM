@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Controls.Primitives;
 using BusinessLayer.DTO;
 using BusinessLayer.Service;
 
@@ -61,7 +62,6 @@ namespace FUMiniTikiSystem
             btnAll.Click += CategoryButton_Click;
             spCategories.Children.Add(btnAll);
 
-            // Add category buttons
             foreach (var category in _categories)
             {
                 var btn = new Button
@@ -170,8 +170,12 @@ namespace FUMiniTikiSystem
                 Content = "Add to Cart",
                 Background = new SolidColorBrush(Color.FromRgb(76, 175, 80)),
                 Foreground = Brushes.White,
-                Padding = new Thickness(10, 5, 10, 5),
-                Tag = product.ProductId
+                Padding = new Thickness(12, 8, 12, 8),
+                Tag = product.ProductId,
+                FontWeight = FontWeights.SemiBold,
+                FontSize = 13,
+                BorderThickness = new Thickness(0),
+                Template = CreateModernButtonTemplate()
             };
             addToCartBtn.Click += AddToCart_Click;
             stackPanel.Children.Add(addToCartBtn);
@@ -257,8 +261,8 @@ namespace FUMiniTikiSystem
 
         private void btnOrders_Click(object sender, RoutedEventArgs e)
         {
-            //var ordersWindow = new OrdersWindow(_currentCustomerId);
-            //ordersWindow.ShowDialog();
+            var ordersWindow = new OrdersWindow(_currentCustomerId);
+            ordersWindow.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -272,6 +276,38 @@ namespace FUMiniTikiSystem
                 loginWindow.Show();
                 this.Close();
             }
+        }
+
+        private ControlTemplate CreateModernButtonTemplate()
+        {
+            var template = new ControlTemplate(typeof(Button));
+            var border = new FrameworkElementFactory(typeof(Border));
+            border.SetValue(Border.CornerRadiusProperty, new CornerRadius(8));
+            border.SetValue(Border.BackgroundProperty, new TemplateBindingExtension(Button.BackgroundProperty));
+            border.SetValue(Border.BorderThicknessProperty, new TemplateBindingExtension(Button.BorderThicknessProperty));
+            border.SetValue(Border.BorderBrushProperty, new TemplateBindingExtension(Button.BorderBrushProperty));
+            border.SetValue(Border.PaddingProperty, new TemplateBindingExtension(Button.PaddingProperty));
+
+            var contentPresenter = new FrameworkElementFactory(typeof(ContentPresenter));
+            contentPresenter.SetValue(ContentPresenter.HorizontalAlignmentProperty, HorizontalAlignment.Center);
+            contentPresenter.SetValue(ContentPresenter.VerticalAlignmentProperty, VerticalAlignment.Center);
+
+            border.AppendChild(contentPresenter);
+            template.VisualTree = border;
+
+            // Add triggers for hover and pressed states
+            var trigger1 = new Trigger { Property = UIElement.IsMouseOverProperty, Value = true };
+            var setter1 = new Setter { Property = Border.BackgroundProperty, Value = new SolidColorBrush(Color.FromRgb(69, 160, 73)) }; // Darker green
+            trigger1.Setters.Add(setter1);
+
+            var trigger2 = new Trigger { Property = Button.IsPressedProperty, Value = true };
+            var setter2 = new Setter { Property = Border.BackgroundProperty, Value = new SolidColorBrush(Color.FromRgb(56, 142, 60)) }; // Even darker green
+            trigger2.Setters.Add(setter2);
+
+            template.Triggers.Add(trigger1);
+            template.Triggers.Add(trigger2);
+
+            return template;
         }
     }
 

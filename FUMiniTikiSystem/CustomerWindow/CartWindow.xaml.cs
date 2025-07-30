@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Controls.Primitives;
 using BusinessLayer.DTO;
 using BusinessLayer.Service;
 
@@ -121,8 +122,15 @@ namespace FUMiniTikiSystem
             var btnMinus = new Button
             {
                 Content = "-",
-                Style = FindResource("QuantityButtonStyle") as Style,
-                Tag = item
+                Background = new SolidColorBrush(Color.FromRgb(33, 150, 243)),
+                Foreground = Brushes.White,
+                Width = 28,
+                Height = 28,
+                FontWeight = FontWeights.Bold,
+                FontSize = 14,
+                BorderThickness = new Thickness(0),
+                Tag = item,
+                Template = CreateModernButtonTemplate()
             };
             btnMinus.Click += BtnMinus_Click;
             quantityPanel.Children.Add(btnMinus);
@@ -140,8 +148,15 @@ namespace FUMiniTikiSystem
             var btnPlus = new Button
             {
                 Content = "+",
-                Style = FindResource("QuantityButtonStyle") as Style,
-                Tag = item
+                Background = new SolidColorBrush(Color.FromRgb(33, 150, 243)),
+                Foreground = Brushes.White,
+                Width = 28,
+                Height = 28,
+                FontWeight = FontWeights.Bold,
+                FontSize = 14,
+                BorderThickness = new Thickness(0),
+                Tag = item,
+                Template = CreateModernButtonTemplate()
             };
             btnPlus.Click += BtnPlus_Click;
             quantityPanel.Children.Add(btnPlus);
@@ -170,8 +185,12 @@ namespace FUMiniTikiSystem
                 Content = "🗑️ Remove",
                 Background = new SolidColorBrush(Color.FromRgb(244, 67, 54)),
                 Foreground = Brushes.White,
-                Padding = new Thickness(8, 4, 8, 4),
-                Tag = item
+                Padding = new Thickness(10, 6, 10, 6),
+                FontSize = 12,
+                FontWeight = FontWeights.SemiBold,
+                BorderThickness = new Thickness(0),
+                Tag = item,
+                Template = CreateModernButtonTemplate()
             };
             btnRemove.Click += BtnRemove_Click;
             totalPanel.Children.Add(btnRemove);
@@ -239,41 +258,53 @@ namespace FUMiniTikiSystem
         {
             if (_cartItems.Count == 0)
             {
-                MessageBox.Show("Your cart is empty!", "Checkout", 
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Your cart is empty!");
                 return;
             }
 
-            try
+            var paymentWindow = new PaymentWindow(_cartItems, _customerId);
+            if (paymentWindow.ShowDialog() == true)
             {
-                // Create order
-                var orderDTO = new BusinessLayer.DTOs.OrderDTO
-                {
-                    CustomerId = _customerId,
-                    OrderAmount = _cartItems.Sum(item => item.Total),
-                    OrderDate = DateTime.Now,
-                    Status = "Pending",
-                    ProductIds = _cartItems.Select(item => item.ProductId).ToList()
-                };
-
-                _orderService.CreateOrder(orderDTO);
-
-                MessageBox.Show("Order placed successfully! Your order number will be provided shortly.", 
-                    "Order Confirmed", MessageBoxButton.OK, MessageBoxImage.Information);
-                
                 this.DialogResult = true;
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error placing order: {ex.Message}", "Error", 
-                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private ControlTemplate CreateModernButtonTemplate()
+        {
+            var template = new ControlTemplate(typeof(Button));
+            var border = new FrameworkElementFactory(typeof(Border));
+            border.SetValue(Border.CornerRadiusProperty, new CornerRadius(6));
+            border.SetValue(Border.BackgroundProperty, new TemplateBindingExtension(Button.BackgroundProperty));
+            border.SetValue(Border.BorderThicknessProperty, new TemplateBindingExtension(Button.BorderThicknessProperty));
+            border.SetValue(Border.BorderBrushProperty, new TemplateBindingExtension(Button.BorderBrushProperty));
+            border.SetValue(Border.PaddingProperty, new TemplateBindingExtension(Button.PaddingProperty));
+
+            var contentPresenter = new FrameworkElementFactory(typeof(ContentPresenter));
+            contentPresenter.SetValue(ContentPresenter.HorizontalAlignmentProperty, HorizontalAlignment.Center);
+            contentPresenter.SetValue(ContentPresenter.VerticalAlignmentProperty, VerticalAlignment.Center);
+
+            border.AppendChild(contentPresenter);
+            template.VisualTree = border;
+
+            // Add triggers for hover and pressed states
+            var trigger1 = new Trigger { Property = UIElement.IsMouseOverProperty, Value = true };
+            var setter1 = new Setter { Property = Border.BackgroundProperty, Value = new SolidColorBrush(Color.FromRgb(25, 118, 210)) }; // Darker blue
+            trigger1.Setters.Add(setter1);
+
+            var trigger2 = new Trigger { Property = Button.IsPressedProperty, Value = true };
+            var setter2 = new Setter { Property = Border.BackgroundProperty, Value = new SolidColorBrush(Color.FromRgb(21, 101, 192)) }; // Even darker blue
+            trigger2.Setters.Add(setter2);
+
+            template.Triggers.Add(trigger1);
+            template.Triggers.Add(trigger2);
+
+            return template;
         }
     }
 } 
