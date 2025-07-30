@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\FUMiniTikiSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}|DataAccessLayer\\DataAccessLayer.csproj|e:\\fuminitikisystem\\dataaccesslayer\\models\\fuminitikisystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\models\\fuminitikisystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}|DataAccessLayer\\DataAccessLayer.csproj|e:\\fuminitikisystem\\dataaccesslayer\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC74FE4-C2CF-4609-8CFC-066A231AC0FF}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|e:\\fuminitikisystem\\fuminitikisystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|solutionrelative:fuminitikisystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|e:\\fuminitikisystem\\fuminitikisystem\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|solutionrelative:fuminitikisystem\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|e:\\fuminitikisystem\\fuminitikisystem\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08285358-AA88-4658-BE6C-AEE40265F351}|FUMiniTikiSystem\\FUMiniTikiSystem.csproj|solutionrelative:fuminitikisystem\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FuminiTikiSystemContext.cs",
+              "DocumentMoniker": "E:\\FUMiniTikiSystem\\DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
+              "ToolTip": "E:\\FUMiniTikiSystem\\DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
+              "RelativeToolTip": "DataAccessLayer\\Models\\FuminiTikiSystemContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:31:53.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Category.cs",
+              "DocumentMoniker": "E:\\FUMiniTikiSystem\\DataAccessLayer\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Models\\Category.cs",
+              "ToolTip": "E:\\FUMiniTikiSystem\\DataAccessLayer\\Models\\Category.cs",
+              "RelativeToolTip": "DataAccessLayer\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:31:52.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "FUMiniTikiSystem\\appsettings.json",
+              "ToolTip": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\appsettings.json",
+              "RelativeToolTip": "FUMiniTikiSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-23T12:29:22.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FUMiniTikiSystem\\MainWindow.xaml",
+              "ToolTip": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\MainWindow.xaml",
+              "RelativeToolTip": "FUMiniTikiSystem\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-23T12:21:49.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FUMiniTikiSystem\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\FUMiniTikiSystem\\FUMiniTikiSystem\\MainWindow.xaml.cs",
+              "RelativeToolTip": "FUMiniTikiSystem\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:21:46.861Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
