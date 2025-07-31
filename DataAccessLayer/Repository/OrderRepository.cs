@@ -40,5 +40,39 @@ namespace DataAccessLayer.Repository
                 .Where(o => o.CustomerId == customerId)
                 .ToList();
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return _context.Orders
+                .Include(o => o.Products)
+                .Include(o => o.Customer)
+                .OrderByDescending(o => o.OrderDate)
+                .ToList();
+        }
+
+        public Order GetOrderById(int orderId)
+        {
+            return _context.Orders
+                .Include(o => o.Products)
+                .Include(o => o.Customer)
+                .FirstOrDefault(o => o.OrderId == orderId);
+        }
+
+        public bool UpdateOrderStatus(int orderId, string newStatus)
+        {
+            try
+            {
+                var order = _context.Orders.Find(orderId);
+                if (order == null) return false;
+
+                order.Status = newStatus;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

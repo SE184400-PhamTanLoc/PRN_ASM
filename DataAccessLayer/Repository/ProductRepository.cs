@@ -45,5 +45,61 @@ namespace DataAccessLayer.Repository
                 .Include(p => p.Category)
                 .FirstOrDefault(p => p.ProductId == productId);
         }
+
+        public bool AddProduct(Product product)
+        {
+            try
+            {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateProduct(Product product)
+        {
+            try
+            {
+                var existingProduct = _context.Products.Find(product.ProductId);
+                if (existingProduct == null) return false;
+
+                existingProduct.Name = product.Name;
+                existingProduct.Price = product.Price;
+                existingProduct.Description = product.Description;
+                existingProduct.CategoryId = product.CategoryId;
+
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteProduct(int productId)
+        {
+            try
+            {
+                var product = _context.Products.Find(productId);
+                if (product == null) return false;
+
+                // Check if product is associated with any order
+                var hasOrders = _context.Products.Any(p => p.ProductId == productId && p.OrderId != null);
+                if (hasOrders) return false;
+
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

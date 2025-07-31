@@ -9,9 +9,10 @@ namespace FUMiniTikiSystem
     public partial class CategoryManagementWindow : Window
     {
         private readonly CategoryService _categoryService;
-        private List<CategoryDTO> _categories;
-        private CategoryDTO _selectedCategory;
+        private List<CategoryDTO> _categories = new List<CategoryDTO>();
+        private CategoryDTO? _selectedCategory;
         private bool _isEditMode = false;
+        private CategoryDTO? _lastAddedCategory = null; // Track the last added category
 
         public CategoryManagementWindow()
         {
@@ -198,8 +199,43 @@ namespace FUMiniTikiSystem
                 if (success)
                 {
                     MessageBox.Show(message, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+                    // If this was a new category, store it for potential product addition
+                    if (!_isEditMode)
+                    {
+                        _lastAddedCategory = categoryDTO;
+                    }
+                    
                     LoadCategories();
-                    ClearForm();
+                    
+                    // If this was a new category, automatically select it
+                    if (!_isEditMode && _lastAddedCategory != null)
+                    {
+                        // Find and select the newly added category
+                        var newlyAddedCategory = _categories.FirstOrDefault(c => c.Name == _lastAddedCategory.Name);
+                        if (newlyAddedCategory != null)
+                        {
+                            CategoryListView.SelectedItem = newlyAddedCategory;
+                            _selectedCategory = newlyAddedCategory;
+                            
+                            // Ask user if they want to add products to this category
+                            var addProductResult = MessageBox.Show(
+                                $"Category '{newlyAddedCategory.Name}' has been added successfully!\n\nWould you like to add products to this category now?",
+                                "Add Products",
+                                MessageBoxButton.YesNo,
+                                MessageBoxImage.Question);
+                            
+                            if (addProductResult == MessageBoxResult.Yes)
+                            {
+                                AddProductButton_Click(null, null);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ClearForm();
+                    }
+                    
                     UpdateStatus(_isEditMode ? "Category updated" : "Category added");
                 }
                 else
@@ -309,6 +345,44 @@ namespace FUMiniTikiSystem
             else
             {
                 UpdateStatus("Ready");
+            }
+        }
+
+        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedCategory == null)
+            {
+                MessageBox.Show("Please select a category first to add products to.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            try
+            {
+                // Create and show ProductManagementWindow with the selected category
+                var productWindow = new ProductManagementWindow(_selectedCategory);
+                productWindow.Show();
+                this.Close(); // Close the category management window
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show($"Error opening Product Management: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                UpdateStatus("Error opening Product Management");
+            }
+        }
+
+        private void BackToDashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Create and show AdminMainWindow
+                var adminMainWindow = new AdminMainWindow();
+                adminMainWindow.Show();
+                this.Close(); // Close the current category management window
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show($"Error opening Admin Dashboard: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                UpdateStatus("Error opening Admin Dashboard");
             }
         }
     }

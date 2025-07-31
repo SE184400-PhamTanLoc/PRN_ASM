@@ -23,6 +23,7 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
+                CategoryId = p.CategoryId,
                 CategoryName = p.Category?.Name ?? "Unknown Category",
                 CategoryImage = p.Category?.Picture
             }).ToList();
@@ -37,6 +38,7 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
+                CategoryId = p.CategoryId,
                 CategoryName = p.Category?.Name ?? "Unknown Category",
                 CategoryImage = p.Category?.Picture
             }).ToList();
@@ -51,9 +53,59 @@ namespace BusinessLayer.Service
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
+                CategoryId = p.CategoryId,
                 CategoryName = p.Category?.Name ?? "Unknown Category",
                 CategoryImage = p.Category?.Picture
             }).ToList();
+        }
+
+        public ProductDTO GetProductById(int productId)
+        {
+            var product = _productRepository.GetProductById(productId);
+            if (product == null) return null;
+
+            return new ProductDTO
+            {
+                ProductId = product.ProductId,
+                Name = product.Name,
+                Price = product.Price,
+                Description = product.Description,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category?.Name ?? "Unknown Category",
+                CategoryImage = product.Category?.Picture
+            };
+        }
+
+        public bool AddProduct(ProductDTO productDTO)
+        {
+            var product = new Product
+            {
+                Name = productDTO.Name,
+                Price = productDTO.Price,
+                Description = productDTO.Description,
+                CategoryId = productDTO.CategoryId
+            };
+
+            return _productRepository.AddProduct(product);
+        }
+
+        public bool UpdateProduct(ProductDTO productDTO)
+        {
+            var product = new Product
+            {
+                ProductId = productDTO.ProductId,
+                Name = productDTO.Name,
+                Price = productDTO.Price,
+                Description = productDTO.Description,
+                CategoryId = productDTO.CategoryId
+            };
+
+            return _productRepository.UpdateProduct(product);
+        }
+
+        public bool DeleteProduct(int productId)
+        {
+            return _productRepository.DeleteProduct(productId);
         }
 
         public List<CategoryDTO> GetAllCategories()
@@ -67,20 +119,5 @@ namespace BusinessLayer.Service
                 Picture = c.Picture
             }).ToList();
         }
-
-        //public ProductDTO GetProductById(int productId)
-        //{
-        //    var product = _productRepository.GetProductById(productId);
-        //    if (product == null) return null;
-
-        //    return new ProductDTO
-        //    {
-        //        ProductId = product.ProductId,
-        //        Name = product.Name,
-        //        Price = product.Price,
-        //        Description = product.Description,
-        //        CategoryName = product.Category.Name
-        //    };
-        //}
     }
 } 

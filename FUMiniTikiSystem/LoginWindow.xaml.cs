@@ -61,9 +61,9 @@ namespace FUMiniTikiSystem
                 // Check if user is admin
                 if (result.IsAdmin)
                 {
-                    // Admin login - redirect to ProductManagement
-                    //ProductManagementWindow productManagementWindow = new ProductManagementWindow();
-                    //productManagementWindow.Show();
+                    // Admin login - redirect to AdminMainWindow
+                    AdminMainWindow adminWindow = new AdminMainWindow();
+                    adminWindow.Show();
                 }
                          else
                  {

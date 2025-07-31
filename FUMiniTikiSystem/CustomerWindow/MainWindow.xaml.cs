@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Controls.Primitives;
 using BusinessLayer.DTO;
 using BusinessLayer.Service;
+using FUMiniTikiSystem.Converters;
 
 namespace FUMiniTikiSystem
 {
@@ -21,6 +22,7 @@ namespace FUMiniTikiSystem
         private List<CategoryDTO> _categories = new List<CategoryDTO>();
         private List<CartItemDTO> _cartItems;
         private int _currentCustomerId;
+        private StringToImageSourceConverter _imageConverter;
 
         public MainWindow(int customerId)
         {
@@ -29,6 +31,7 @@ namespace FUMiniTikiSystem
             _productService = new ProductService();
             _orderService = new OrderService();
             _cartItems = new List<CartItemDTO>();
+            _imageConverter = new StringToImageSourceConverter();
             
             LoadData();
             LoadCategories();
@@ -113,7 +116,7 @@ namespace FUMiniTikiSystem
 
             var stackPanel = new StackPanel();
             
-            // Product Image Placeholder
+            // Product Image using Category Image
             var imageBorder = new Border
             {
                 Height = 120,
@@ -122,14 +125,32 @@ namespace FUMiniTikiSystem
                 Margin = new Thickness(0, 0, 0, 10)
             };
             
-            var imageText = new TextBlock
+            // Create Image control for category image
+            var image = new Image
+            {
+                Stretch = Stretch.UniformToFill,
+                Source = _imageConverter.Convert(product.CategoryImage ?? string.Empty, null, null, null) as ImageSource
+            };
+            
+            // Create fallback text for when no image is available
+            var fallbackText = new TextBlock
             {
                 Text = "🖼️",
                 FontSize = 40,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = new SolidColorBrush(Colors.Gray)
             };
-            imageBorder.Child = imageText;
+            
+            // Create a Grid to hold both image and fallback text
+            var imageGrid = new Grid();
+            imageGrid.Children.Add(image);
+            imageGrid.Children.Add(fallbackText);
+            
+            // Show fallback text only when image is null
+            fallbackText.Visibility = string.IsNullOrEmpty(product.CategoryImage) ? Visibility.Visible : Visibility.Collapsed;
+            
+            imageBorder.Child = imageGrid;
             stackPanel.Children.Add(imageBorder);
 
             // Product Name
